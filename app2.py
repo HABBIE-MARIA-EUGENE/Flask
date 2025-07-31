@@ -8,8 +8,11 @@ def home():
 
 @app.route("/welcome", methods=["POST"])
 def welcome():
-    user_name = request.form["username"]
-    return render_template("welcome.html",name=user_name)
+    name = request.form["name"]
+    email = request.form["email"]
+    age = request.form["age"]
+
+    return render_template("welcome.html",name=name, email=email, age=age)
 
 if __name__ == "__main__":
     app.run(debug = True)
