@@ -1,17 +1,22 @@
-from flask import Flask ,render_template
+from flask import Flask
 
+app = Flask(__name__)       # Telling flask to make a new Flask app
 
-app = Flask(__name__)      #constructor value 
-
-
-@app.route('/')         
-@app.route('/home')         #either of these routes will trigger this function
+@app.route("/")
 def home():
-    return render_template('register.html') #render_template is used to render the HTML file 
+    return "This is the HOME"
 
+@app.route("/hall")
+def hall():
+    return "This is the HALL"
 
+@app.route("/bedroom")
+def bedroom():
+    return "This is the BEDROOM"
 
+@app.route("/kitchen")
+def kitchen():
+    return "This is the KITCHEN"
 
-
-if __name__ == '__main__':
-    app.run(debug=True) # To reload/ refresh the page automatically
+if __name__ == "__main__":
+    app.run(debug=True)  
